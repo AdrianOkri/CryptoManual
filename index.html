@@ -25,15 +25,15 @@
                     </div>
                     <div class="card-body">
                         <blockquote>
-                            <div v-for="input in inputs">
+                            <div v-for="(input, index) of inputs">
                                 <div class="form-group">
                                     <h4><i class="fas fa-key"></i> {{ input.title }}</h4>
-                                    <input type="text" class="form-control" v-bind:id="input.index">
+                                    <input type="text" class="form-control" v-model="valueInputs[index]" v-bind:id="index">
                                 </div>
                             </div>
                             <h3><i class="fas fa-file-alt"></i> User text</h3>
                             <div class="form-group">
-                                <textarea name="comment" rows="6" class="form-control" placeholder="Your text"></textarea>
+                                <textarea v-model="text" rows="6" class="form-control" placeholder="Your text"></textarea>
                             </div>
                             <div class="form-group">
                                 <button v-on:click="crypto()" class="btn btn-outline-warning mr-5">
@@ -73,6 +73,7 @@
                                 <h3><i class="fab fa-vuejs"></i> Result</h3>
                             </div>
                             <div class="card-body">
+                                <p>{{ finalText }}</p>
                             </div>
                         </div>
                     </div>

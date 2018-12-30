@@ -3,13 +3,14 @@ const nameMethods = [
     { name: 'Polybios' },
     { name: 'Repetition' },
     { name: 'Rino' },
-    { name: 'Ivus' }
+    { name: 'Ivus' }, { name: 'Atbash' }
 ]
 const globalInputs = 
     [
-        [{title: 'Private Key', name: 'PrivateKey', index: 0}],
+        [{title: 'Private Key', name: 'PrivateKey'}],
         [],[],[],
-        [{title: 'Number key', name: 'Number key', index: 0}, {title: 'Numerical Base', name: 'NumericalBase', index: 1}, {title: 'Public key', name: 'PublicKey', index: 2}]
+        [{title: 'Number key', name: 'Number key'}, {title: 'Numerical Base', name: 'NumericalBase'}, {title: 'Public key', name: 'PublicKey'}],
+        []
     ]
 
 new Vue({
@@ -17,10 +18,12 @@ new Vue({
     data: {
         title: 'Encryption',
         author: 'Neo TRAN - Team Wasp',
-        text: [],
+        text: '',
         selected: '',
         inputs: [],
-        methods: nameMethods
+        valueInputs: [],
+        methods: nameMethods,
+        finalText: ''
     },
     methods: {
         createInputs: function() {
@@ -34,12 +37,14 @@ new Vue({
             });
         },
         crypto: function() {
-
             if(this.inputs.length != 0) {
-                alert(this.text)
+                console.log(`${this.text}`);
+                for(let i = 0; i < this.inputs.length; i++) {
+                    console.log(`${this.valueInputs[i]}`);
+                }
             } else {
-                alert('Vacio')
             }
         }
     }
 });
+
