@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Encryption</title>
+    <!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <!-- FONTAWESOME CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container text-center">
+        <div id="interface" class="row">
+            <div class="col-md-6 mt-4">
+                <div class="card border-success mb-3">
+                    <div class="card-header">
+                        <h3><i class="fa fa-shield-alt"></i> {{ title }}: {{ selected }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <blockquote>
+                            <div v-for="input in inputs">
+                                <div class="form-group">
+                                    <h4><i class="fas fa-key"></i> {{ input.title }}</h4>
+                                    <input type="text" class="form-control" v-bind:id="input.index">
+                                </div>
+                            </div>
+                            <h3><i class="fas fa-file-alt"></i> User text</h3>
+                            <div class="form-group">
+                                <textarea name="comment" rows="6" class="form-control" placeholder="Your text"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button v-on:click="crypto()" class="btn btn-outline-warning mr-5">
+                                    <i class="fas fa-eye-slash"></i> Cifrar
+                                </button>
+                                <button class="btn btn-outline-danger">
+                                    <i class="fas fa-eye"></i> Descifrar
+                                </button>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="card-footer">
+                        <h4 style="font-family: 'Faster One', cursive;">{{ author }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-4 ml-4">
+                    <div class="col-md-12 mt-4 ml-4">
+                        <div class="card border-primary mb-3">
+                            <div class="card-header">
+                                <h3><i class="fas fa-book-dead"></i> Methods</h3>
+                            </div>
+                            <div class="card-body">
+                                <select class="custom-select" v-model="selected">
+                                    <option disabled value="">Please select one</option>
+                                    <option v-for="method in methods">{{ method.name }}</option>
+                                </select>
+                                <button v-on:click="createInputs()" class="btn btn-outline-primary mt-4">
+                                    <i class="far fa-check-square"></i> Ok
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-4 ml-4">
+                        <div class="card border-primary mb-3">
+                            <div class="card-header">
+                                <h3><i class="fab fa-vuejs"></i> Result</h3>
+                            </div>
+                            <div class="card-body">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="70" style="width: 100%"></div>
+        </div>
+    </div>
+    <!-- CDN Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <!-- CUSTOM JS -->
+    <script src="./JS/interface.js"></script>
+</body>
+
+</html>
