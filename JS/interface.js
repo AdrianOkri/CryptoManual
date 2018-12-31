@@ -10,6 +10,11 @@ const globalInputs =
         [{title: 'Private Key', name: 'PrivateKey'}]
     ]
 
+const urlMethods = [
+    { url: 'https://r3gularweb.blogspot.com/2018/11/1-introduccion-la-criptografia-con.html' }, { url: 'https://r3gularweb.blogspot.com/2018/12/3-criptografia-cifrado-por-sustitucion.html' },
+    { url: '' }, { url: 'https://r3gularweb.blogspot.com/2018/11/2-en-construccion-criptografia-de.html' }, { url: '' }, { url: '' }, { url: '' }, { url: '' }, { url: '' }, { url: '' },
+]
+
 new Vue({
     el: '#interface',
     data: {
@@ -20,6 +25,7 @@ new Vue({
         inputs: [],
         valueInputs: [],
         methods: nameMethods,
+        url: '',
         finalText: ''
     },
     methods: {
@@ -29,6 +35,7 @@ new Vue({
             nameMethods.forEach(element => {
                 if(element.name == this.selected) {
                     this.inputs = globalInputs[i];
+                    this.url = urlMethods[i].url;
                 }
                 i++;
             });

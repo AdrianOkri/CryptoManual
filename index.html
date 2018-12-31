@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Encryption</title>
+    <title>CryptoManual 1</title>
+    <link rel="shortcut icon" href="./book.ico" type="image/x-icon">
     <!-- CDN Bootstrap -->
     <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
     <!-- FONTAWESOME CDN -->
@@ -64,6 +65,9 @@
                                 <button v-on:click="createInputs()" class="btn btn-outline-primary mt-4">
                                     <i class="far fa-check-square"></i> Ok
                                 </button>
+                            </div>
+                            <div class="card-footer">
+                                <a v-bind:href="url" target="_blank">Blog: {{ selected }}</a>
                             </div>
                         </div>
                     </div>
