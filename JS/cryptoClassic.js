@@ -4,6 +4,7 @@ function createCrypto(text, name) {
     switch(name) {
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
+        case 'Polybios': textF = polybios(text); break;
     }
 
     return textF;
@@ -15,6 +16,7 @@ function destroyCrypto(text, name) {
     switch(name) {
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
+        case 'Polybios': textF = dePolybios(text); break;
     }
 
     return textF;
@@ -56,7 +58,7 @@ function atbash(text) {
         x = ((65 - n) + 26) + 64;
 
         textAtbash.push(String.fromCharCode(x));
-    })
+    });
     arrayText = "";
     textAtbash.forEach(element => {
         if(element == "{" || element == " ") {
@@ -67,4 +69,47 @@ function atbash(text) {
     })
 
     return arrayText;
+}
+// --------------------------------------------------------------------
+// -------------------------- Polklybios ------------------------------
+// --------------------------------------------------------------------
+
+const POLYBIOS = [
+	["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
+	["k", "l", "m", "n", "o", "p", "q", "r", "s", "t"],
+	["u", "v", "w", "x", "y", "z", "A", "B", "C", "D"],
+	["E", "F", "G", "H", "I", "J", "K", "L", "M", "N"],
+	["O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"],
+	["Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7"],
+    ["8", "9", "á", "é", "í", "ó", "ú", "?", "¿", ":"],
+    [" ", ",", ".", "(", ")", "@", "ñ", "Ñ", "!", "="]
+];
+
+function polybios(text) {
+    const arrayText = text.split('');
+    let textPolybios = '';
+    arrayText.forEach(element => {
+        for(let x = 0; x < 8; x++) {
+            for(let y = 0; y < 10; y++) {
+                if(element == POLYBIOS[x][y]) {
+                    
+                    textPolybios += String.fromCharCode((x + 65), (y + 65)) ;
+                }
+            }
+        }
+    });
+    return textPolybios;
+}
+
+function dePolybios(text) {
+    const arrayText = text.split('');
+    let textPolybios = '';
+
+    for(let i = 0; i < arrayText.length; i += 2) {
+        let x = arrayText[i].charCodeAt();
+        let y = arrayText[i+1].charCodeAt();
+        textPolybios += POLYBIOS[x-65][y-65];
+    }
+
+    return textPolybios;
 }
