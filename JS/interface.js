@@ -19,7 +19,7 @@ new Vue({
     el: '#interface',
     data: {
         title: 'Encryption',
-        author: 'Noe TRAN - TEAM WASP',
+        author: 'Adrián - TEAM WASP',
         text: '',
         selected: '',
         inputs: [],
