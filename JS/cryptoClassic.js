@@ -130,20 +130,15 @@ function repetition(text) {
         if(auxLetter != '1') {
             for(let i = 0; i < arrayText.length; i++) {
                 if(auxLetter == arrayText[i]) {
-                    if(i == (arrayText.length - 1)) {
-                        arrayText[i] = '1';
-                        index += i; total++;
-                    } else {
-                        arrayText[i] = '1';
-                        index += j + "$"; total++;
-                    }
+                    arrayText[i] = '1';
+                    index += i + "$"; total++;    
                 } 
             }
         } else {
             continue;
         }
 
-        result += auxLetter + '%' + total + "|" + index + '^';
+        result += auxLetter + '%' + total + "@" + index + '^';
         index = ""; total = 0;
     };
 
@@ -155,5 +150,25 @@ function deRepetition(text) {
     const arrayText = new Array(parseInt(sizeArray[0], 10));
     const tokenLetter = sizeArray[1].split("^");
 
-    return tokenLetter;
+    console.log(tokenLetter);
+
+    for(let i = 0; i < tokenLetter.length-1; i++) {
+        let letter = tokenLetter[i].split('%');
+        let repetition = letter[1].split('@');
+        let position = repetition[1].split('$');
+
+        for(let j = 0; j < parseInt(repetition[0]); j++) {
+            let index = parseInt(position[j]);
+
+
+            arrayText[index] = letter[0];
+        }
+    }
+
+    let result = '';
+    arrayText.forEach(element => {
+        result += element;
+    });
+
+    return result;
 }
