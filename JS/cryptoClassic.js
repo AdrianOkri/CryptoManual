@@ -5,6 +5,7 @@ function createCrypto(text, name) {
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = polybios(text); break;
+        case 'Repetition': textF = repetition(text); break;
     }
 
     return textF;
@@ -17,6 +18,7 @@ function destroyCrypto(text, name) {
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = dePolybios(text); break;
+        case 'Repetition': textF = deRepetition(text); break;
     }
 
     return textF;
@@ -112,4 +114,46 @@ function dePolybios(text) {
     }
 
     return textPolybios;
+}
+
+// --------------------------------------------------------------------
+// -------------------------- Repetition ------------------------------
+// --------------------------------------------------------------------
+
+function repetition(text) {
+    const arrayText = text.split('');
+    let auxLetter, total = 0, index = "", result = "";
+    
+    for(let j = 0; j < arrayText.length; j++) {
+        auxLetter = arrayText[j];
+
+        if(auxLetter != '1') {
+            for(let i = 0; i < arrayText.length; i++) {
+                if(auxLetter == arrayText[i]) {
+                    if(i == (arrayText.length - 1)) {
+                        arrayText[i] = '1';
+                        index += i; total++;
+                    } else {
+                        arrayText[i] = '1';
+                        index += j + "$"; total++;
+                    }
+                } 
+            }
+        } else {
+            continue;
+        }
+
+        result += auxLetter + '%' + total + "|" + index + '^';
+        index = ""; total = 0;
+    };
+
+    return text.length + "(°-°)" + result;
+}
+
+function deRepetition(text) {
+    let sizeArray = text.split('(°-°)');
+    const arrayText = new Array(parseInt(sizeArray[0], 10));
+    const tokenLetter = sizeArray[1].split("^");
+
+    return tokenLetter;
 }
