@@ -1,4 +1,4 @@
-# Crypto Manual 1
+# Crypto Manual 1 - 25% finished
 
 # Classic encryption
 
@@ -14,5 +14,3 @@
 ![](./img/2.PNG)
 ![](./img/3.PNG)
 ![](https://raw.githubusercontent.com/AdrianOkri/CifradoIvuis/master/Sc/Captura16.jpg)
-
-# In construction
