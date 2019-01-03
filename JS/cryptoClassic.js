@@ -6,6 +6,7 @@ function createCrypto(text, name) {
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = polybios(text); break;
         case 'Repetition': textF = repetition(text); break;
+        case 'Cesar': textF = cesar(); break;
     }
 
     return textF;

@@ -7,7 +7,7 @@ const nameMethods = [
 const globalInputs = 
     [
         [],[],[],[],[],[],[],[],[],
-        [{title: 'Private Key', name: 'PrivateKey'}]
+        [{title: 'Private Key', name: 'Key'}]
     ]
 
 const urlMethods = [
@@ -42,32 +42,17 @@ new Vue({
         },
         crypto: function() {
             if(this.inputs.length != 0) {
-                console.log(`${this.text}`);
-                for(let i = 0; i < this.inputs.length; i++) {
-                    console.log(`${this.valueInputs[i]}`);
-                }
+                this.finalText = createCryptoInputs(this.text, this.selected, this.valueInputs);
             } else {
-                this.finalText = create(this.text, this.selected);
+                this.finalText = createCrypto(this.text, this.selected);
             }
         },
         decipher: function() {
             if(this.inputs.length != 0) {
-                console.log(`${this.text}`);
-                for(let i = 0; i < this.inputs.length; i++) {
-                    console.log(`${this.valueInputs[i]}`);
-                }
+                this.finalText = destroyCryptoInputs(this.text, this.selected, this.valueInputs);
             } else {
-                this.finalText = destroy(this.text, this.selected);
+                this.finalText = destroyCrypto(this.text, this.selected);
             }
         }
     }
 });
-
-function create(text, name) {
-    return createCrypto(text, name);
-}
-
-function destroy(text, name) {
-    return destroyCrypto(text, name);
-}
-
