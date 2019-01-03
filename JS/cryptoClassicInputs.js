@@ -23,8 +23,8 @@ function destroyCryptoInputs(text, name, inputs) {
 // --------------------------------------------------------------------
 
 function cesar(text, key, op) {
-    const abc = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    const arrayText = text.split('');
+    const abc = 'ABCDEFGHIJKLMNOPQRSTVWXYZ'.split('');
+    const arrayText = text.toUpperCase().split('');
     let result = '';
 
     arrayText.forEach((element) => {

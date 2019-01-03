@@ -2,6 +2,7 @@ function createCrypto(text, name) {
     let textF = '';
 
     switch(name) {
+        case 'A1Z26': textF = a1z26(text); break;
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = polybios(text); break;
@@ -16,6 +17,7 @@ function destroyCrypto(text, name) {
     let textF = '';
 
     switch(name) {
+        case 'A1Z26': textF = deA1z26(text); break;
         case 'Atbash': textF = atbash(text); break;
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = dePolybios(text); break;
@@ -24,10 +26,34 @@ function destroyCrypto(text, name) {
 
     return textF;
 }
+// --------------------------------------------------------------------
+// -------------------------- A1Z26 -----------------------------------
+// --------------------------------------------------------------------
+function a1z26(text) {
+    const arrayText = text.split('');
+    let result = '';
+
+    arrayText.forEach(element => {
+        result += (parseInt(element.charCodeAt(0)) - 64) + "-";
+    });
+
+    return result.slice(0,-1);
+}
+
+function deA1z26(text) {
+    const arrayText = text.split('-');
+    let result = '';
+
+    arrayText.forEach(element => {
+        result += String.fromCharCode(((parseInt(element) + 64))); 
+    });
+
+    return result;
+}
 
 // --------------------------------------------------------------------
 // -------------------------- ROT13 -----------------------------------
-// --------------------------------------------------------------------
+// ------------------   --------------------------------------------------
 function rot13(text) {
     let abecedario = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result = '';

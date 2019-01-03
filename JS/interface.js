@@ -1,12 +1,12 @@
 const nameMethods = [
-    { name: 'ROT13' }, { name: 'Atbash' }, { name: 'Escítala' },
+    {name: 'A1Z26'} ,{ name: 'ROT13' }, { name: 'Atbash' }, { name: 'Escítala' },
     { name: 'Polybios' },{ name: 'Vigenère' }, { name: 'Playfair' },
     { name: 'Hill' }, { name: 'Vernam' }, { name: 'Repetition' },
     { name: 'Cesar' }
 ]
 const globalInputs = 
     [
-        [],[],[],[],[],[],[],[],[],
+        [],[],[],[],[],[],[],[],[],[],
         [{title: 'Private Key', name: 'Key'}]
     ]
 
