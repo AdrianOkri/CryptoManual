@@ -34,7 +34,8 @@ function a1z26(text) {
     let result = '';
 
     arrayText.forEach(element => {
-        result += (parseInt(element.charCodeAt(0)) - 64) + "-";
+        if(element != ' ') result += (parseInt(element.charCodeAt(0)) - 64) + "-";
+        else result += ' ';
     });
 
     return result.slice(0,-1);
@@ -45,7 +46,8 @@ function deA1z26(text) {
     let result = '';
 
     arrayText.forEach(element => {
-        result += String.fromCharCode(((parseInt(element) + 64))); 
+        if(element != ' ') result += String.fromCharCode(((parseInt(element) + 64))); 
+        else result += ' ';
     });
 
     return result;

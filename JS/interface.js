@@ -1,13 +1,13 @@
 const nameMethods = [
     {name: 'A1Z26'} ,{ name: 'ROT13' }, { name: 'Atbash' }, { name: 'Escítala' },
-    { name: 'Polybios' },{ name: 'Vigenère' }, { name: 'Playfair' },
-    { name: 'Hill' }, { name: 'Vernam' }, { name: 'Repetition' },
+    { name: 'Polybios' }, { name: 'Playfair' }, { name: 'Hill' },
+    { name: 'Vernam' }, { name: 'Repetition' }, { name: 'Vigenère' },
     { name: 'Cesar' }
 ]
 const globalInputs = 
     [
-        [],[],[],[],[],[],[],[],[],[],
-        [{title: 'Private Key', name: 'Key'}]
+        [],[],[],[],[],[],[],[],[],
+        [{title: 'Word Key', name: 'Key'}], [{title: 'Key', name: 'Key'}]
     ]
 
 const urlMethods = [
@@ -19,7 +19,7 @@ new Vue({
     el: '#interface',
     data: {
         title: 'Encryption',
-        author: 'Adrián - TEAM WASP',
+        author: 'TEAM WASP',
         text: '',
         selected: '',
         inputs: [],
