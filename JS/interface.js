@@ -6,8 +6,9 @@ const nameMethods = [
 ]
 const globalInputs = 
     [
-        [],[],[],[],[],[],[],[],[],
-        [{title: 'Word Key', name: 'Key'}], [{title: 'Key', name: 'Key'}]
+        [],[],[],[{title: 'Rows'}, {title: 'Columns'}],
+        [],[],[],[],[],
+        [{title: 'Word Key'}], [{title: 'Key'}]
     ]
 
 const urlMethods = [

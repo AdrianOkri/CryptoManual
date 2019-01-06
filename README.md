@@ -1,4 +1,4 @@
-# Crypto Manual 1 - 25% finished
+# Crypto Manual 1 - 65% finished
 
 # Classic encryption
 
