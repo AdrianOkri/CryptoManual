@@ -7,7 +7,7 @@ const nameMethods = [
 const globalInputs = 
     [
         [],[],[],[{title: 'Rows'}, {title: 'Columns'}],
-        [],[],[],[],[],
+        [],[{title: 'Word Key'}],[],[],[],
         [{title: 'Word Key'}], [{title: 'Key'}]
     ]
 
