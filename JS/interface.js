@@ -10,8 +10,16 @@ const globalInputs =
     ]
 
 const urlMethods = [
-    { url: '' },{ url: '' },{ url: '' },{ url: '' },{ url: '' },{ url: '' },{ url: '' },
-    { url: '' },{ url: '' },{ url: '' },
+    { url: '' },
+    { url: 'https://darkbyteblog.wordpress.com/2011/06/15/criptografia-rot13/' },
+    { url: 'http://www.ugr.es/~anillos/textos/pdf/2010/EXPO-1.Criptografia/02a01.htm' },
+    { url: 'https://es.wikipedia.org/wiki/Esc%C3%ADtala' },
+    { url: 'https://unamcriptografia.wordpress.com/category/tecnicas-clasicas-de-cifrado/sustitucion/monoalfabetica/monogramica/polybios/' },
+    { url: 'https://unamcriptografia.wordpress.com/category/vigenere/' },
+    { url: '' },
+    { url: 'https://unamcriptografia.wordpress.com/category/tecnicas-clasicas-de-cifrado/sustitucion/monoalfabetica/monogramica/cesar/' },
+    { url: 'https://es.wikipedia.org/wiki/Base_(aritm%C3%A9tica)' },
+    { url: '' },
 ]
 
 new Vue({
