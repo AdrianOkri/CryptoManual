@@ -7,6 +7,7 @@ function createCrypto(text, name) {
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = polybios(text); break;
         case 'Repetition': textF = repetition(text); break;
+        case 'Reverse': textF = reverse(text); break;
     }
 
     return textF;
@@ -21,6 +22,7 @@ function destroyCrypto(text, name) {
         case 'ROT13': textF = rot13(text); break;
         case 'Polybios': textF = dePolybios(text); break;
         case 'Repetition': textF = deRepetition(text); break;
+        case 'Reverse': textF = reverse(text); break;
     }
 
     return textF;
@@ -197,6 +199,16 @@ function deRepetition(text) {
     arrayText.forEach(element => {
         result += element;
     });
+
+    return result;
+}
+
+function reverse(text) {
+    const arrayText = text.split('');
+    let result = '';
+
+    arrayText.reverse();
+    arrayText.forEach(element => { result += element; });
 
     return result;
 }

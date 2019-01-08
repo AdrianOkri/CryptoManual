@@ -6,6 +6,7 @@ function createCryptoInputs(text, name, inputs) {
         case 'Vigenère': textF = vigenere(text, inputs[0].toUpperCase(), 1); break;
         case 'Escítala': textF = escitala(text, inputs[0], inputs[1]); break;
         case 'Playfair': textF = playfair(text, inputs[0]); break;
+        case 'NumberBase': textF = numberBase(text, inputs[0]); break;
     }
 
     return textF;
@@ -18,6 +19,7 @@ function destroyCryptoInputs(text, name, inputs) {
         case 'Cesar': textF = cesar(text, inputs[0], 0); break;
         case 'Vigenère': textF = vigenere(text, inputs[0].toUpperCase(), 0); break;
         case 'Escítala': textF = deEscitala(text, inputs[0], inputs[1]); break;
+        case 'NumberBase': textF = killNumberBase(text, inputs[0]); break;
     }
 
     return textF;
@@ -137,42 +139,32 @@ function deEscitala(text, rows, columns) {
 }
 
 // --------------------------------------------------------------------
-// ---------------------------- Playfair ------------------------------
+// --------------------------  numberBase  ------------------------------
 // --------------------------------------------------------------------
-function killLetters(text) {
-    let arrayText = text.toUpperCase().split('');
-    const wordCustomVector = new Array(5);
-    let wordCustom = '';
 
-    for(let i = 0; i < 5; i++) wordCustomVector[i] = new Array(5);
-
+function numberBase(text, base) {
+    const arrayText = text.split('');
+    let result = '';
+    let n = 0;
     arrayText.forEach((element, index) => {
-        if(element != '1')  for(let i = 0; i < arrayText.length; i++) 
-                                if(element == arrayText[i] && i != index) arrayText[i] = '1';
-    });
-    arrayText.forEach((letter, index) => {
-        if(letter != '1' && letter != ' ') wordCustom += letter;
-    });
-
-    letter = 0;
-
-    for(let i = 0; i < 5; i++) {
-        for(let j = 0; j < 5; j++) {
-            if(wordCustom[letter] != 'I') wordCustomVector[i][j] = wordCustom[letter];
-            else wordCustomVector[i][j] = 'I/J';
-            letter++; 
+        n = parseInt(element.charCodeAt(0));
+        if(index == arrayText.length -1) {
+            result += n.toString(parseInt(base));
+        } else {
+            result += n.toString(parseInt(base)) + "-";
         }
-    }
-
-    return wordCustomVector;
+        
+    });
+    return result;
 }
 
-function playfair(text, key) {
-    const abc = 'ABCDEFGHIKLMNOPQRSTUVWXYZ';
-    const wordCustom = killLetters(key + abc);
-
-
-    
-
-    return wordCustom;
+function killNumberBase(text, base) {
+    const arrayText = text.split('-');
+    let result = '';
+    let n;
+    arrayText.forEach(element => {
+        n = parseInt(element, parseInt(base));
+        result +=  String.fromCharCode(n);
+    });
+    return result;
 }
